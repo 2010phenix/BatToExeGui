@@ -62,7 +62,11 @@ namespace BatToExeGui
                 {
                     var gameName = game.Remove(0, sourceFolder.Length);
                     gameName = gameName.Remove(gameName.Length - 4);
-                    gameName = gameName.Remove(0, 1);
+                    if (gameName[0] == '\\')
+                    {
+                        gameName = gameName.Remove(0, 1);
+                    }
+                    
                     var arguments = string.Format("\"{0}\" -s {1} -r \"{2}\" -f RocketLauncherUI -p RocketLauncherUI", rocketLauncherLocation, systemName, gameName);
 
                     var finalFile = System.IO.Path.Combine(destinationFolder, gameName) + ".bat";
