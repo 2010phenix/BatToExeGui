@@ -1,0 +1,24 @@
+﻿<Window x:Class="BatToExeGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BatToExeGui"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="287.903" Width="739.517">
+    <Grid>
+        <Label x:Name="sourceFolderLabel" Content="Source Folder" HorizontalAlignment="Left" Margin="33,27,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="destinationFolderLabel" Content="Destination Folder" HorizontalAlignment="Left" Margin="33,76,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="sourceTextBox" HorizontalAlignment="Left" Height="23" Margin="162,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="460"/>
+        <TextBox x:Name="DestinationFolderTextBox" HorizontalAlignment="Left" Height="23" Margin="162,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="460"/>
+        <Button x:Name="sourceFolderBrowserButton" Content=". . ." HorizontalAlignment="Left" Margin="627,31,0,0" VerticalAlignment="Top" Width="75" Click="sourceFolderBrowserButton_Click"/>
+        <Button x:Name="destinationFolderBrowserButton" Content=". . ." HorizontalAlignment="Left" Margin="627,80,0,0" VerticalAlignment="Top" Width="75" Click="destinationFolderBrowserButton_Click"/>
+        <Button x:Name="goButton" Content="Go" HorizontalAlignment="Left" Margin="627,213,0,0" VerticalAlignment="Top" Width="75" Click="goButton_Click"/>
+        <Label x:Name="label" Content="Rocket Launcher Exe Location:" HorizontalAlignment="Left" Margin="33,125,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="System Name:" HorizontalAlignment="Left" Margin="33,168,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="systemNameTextBox" HorizontalAlignment="Left" Height="23" Margin="162,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="460"/>
+        <TextBox x:Name="RocketLauncherLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="208,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="414"/>
+        <Button x:Name="rocketLauncherExeBrowserButton" Content=". . ." HorizontalAlignment="Left" Margin="627,125,0,0" VerticalAlignment="Top" Width="75" Click="rocketLauncherExeBrowserButton_Click"/>
+
+    </Grid>
+</Window>
