@@ -16,6 +16,8 @@ using Ookii.Dialogs.Wpf;
 using System.IO;
 using System.CodeDom.Compiler;
 using Microsoft.CSharp;
+using RestSharp;
+using System.Net;
 
 namespace BatToExeGui
 {
@@ -80,13 +82,35 @@ namespace BatToExeGui
                 foreach (var bat in batList)
                 {
                     var gameName = bat.Remove(0, destinationFolder.Length);
-                    gameName = gameName.Remove(gameName.Length - 4) + ".exe";
-                    var finalLocation = string.Format("{0}{1}", destinationFolder, gameName);
+                    gameName = gameName.Remove(gameName.Length - 4);
+                    var finalLocation = string.Format("{0}{1}.exe", destinationFolder, gameName);
                     CompileBatToExe(bat, finalLocation);
+                    GetGridImage(systemNameTextBox.Text, gameName, destinationFolder);
                 }
                 MessageBox.Show("Finished Compilation");
+
+
             }
         }
+
+        public static void GetGridImage(string Console, string GameName, string destinationPath)
+        {
+                        var host = @"http://consolegrid.com/api";
+
+            var client = new RestClient(host);
+            var request = new RestRequest("top_picture?console={console}&game={game}", Method.POST);
+            request.AddUrlSegment("console", Console);
+            request.AddUrlSegment("game", GameName);
+
+            var response = client.Execute(request);
+
+            var finalFile = string.Format("{0}\\{1}.png", destinationPath, GameName);
+            using (WebClient webClient = new WebClient())
+            {
+                webClient.DownloadFile(response.Content, finalFile);
+            }
+        }
+
 
         public static void CompileBatToExe(string batchFile, string outputExe)
         {
